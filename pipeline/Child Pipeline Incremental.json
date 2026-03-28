@@ -40,7 +40,8 @@
 							"schemaname": "@pipeline().parameters.TableSchema",
 							"tablename": "@pipeline().parameters.TableName"
 						}
-					}
+					},
+					"firstRowOnly": true
 				}
 			},
 			{
