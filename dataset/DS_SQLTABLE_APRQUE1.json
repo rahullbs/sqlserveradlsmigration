@@ -9,10 +9,6 @@
 			"Table_Name": {
 				"type": "string",
 				"defaultValue": "@pipeline().parameters.TableName"
-			},
-			"TableSchema": {
-				"type": "string",
-				"defaultValue": "@pipeline().parameters.TableSchema"
 			}
 		},
 		"annotations": [],
