@@ -117,10 +117,14 @@
 								"referenceName": "DS_LKUP_MAX_VALUE",
 								"type": "DatasetReference",
 								"parameters": {
-									"schemaname": "@pipeline().parameters.TableSchema",
-									"tablename": "@pipeline().parameters.TableName"
+									"tablename": "@pipeline().parameters.TableName",
+									"schemaname": {
+										"value": "@pipeline().parameters.TableSchema",
+										"type": "Expression"
+									}
 								}
-							}
+							},
+							"firstRowOnly": true
 						}
 					},
 					{
@@ -187,8 +191,11 @@
 											"referenceName": "DS_LKUP_MAX_VALUE",
 											"type": "DatasetReference",
 											"parameters": {
-												"schemaname": "@pipeline().parameters.TableSchema",
-												"tablename": "@pipeline().parameters.TableName"
+												"tablename": "@pipeline().parameters.TableName",
+												"schemaname": {
+													"value": "@pipeline().parameters.TableSchema",
+													"type": "Expression"
+												}
 											}
 										}
 									],
@@ -223,7 +230,20 @@
 											"type": "PipelineReference"
 										},
 										"waitOnCompletion": true,
-										"parameters": {}
+										"parameters": {
+											"TableSchema": {
+												"value": "@pipeline().parameters.TableSchema",
+												"type": "Expression"
+											},
+											"TableName": {
+												"value": "@pipeline().parameters.TableName",
+												"type": "Expression"
+											},
+											"WatermarkColumn": {
+												"value": "@pipeline().parameters.WatermarkColumn",
+												"type": "Expression"
+											}
+										}
 									}
 								}
 							]
@@ -235,10 +255,12 @@
 				},
 				"parameters": {
 					"TableSchema": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "@pipeline().parameters.TableSchema"
 					},
 					"TableName": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "@pipeline().parameters.TableName"
 					},
 					"WatermarkColumn": {
 						"type": "string"
@@ -357,7 +379,8 @@
 								"referenceName": "DS_SQLSERVER_TBLBLKUP",
 								"type": "DatasetReference",
 								"parameters": {}
-							}
+							},
+							"firstRowOnly": false
 						}
 					},
 					{
@@ -377,6 +400,7 @@
 								"value": "@activity('LKUP_SQLTABLE_WATERMARK_DW').output.value",
 								"type": "Expression"
 							},
+							"isSequential": false,
 							"activities": [
 								{
 									"name": "EXEX_SQL_INCREMENTAL_PIPELINE",
@@ -436,13 +460,11 @@
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
-					"schemaname": {
-						"type": "string",
-						"defaultValue": "@pipeline().parameters.TableSchema"
-					},
 					"tablename": {
-						"type": "string",
-						"defaultValue": "@pipeline().parameters.TableName"
+						"type": "string"
+					},
+					"schemaname": {
+						"type": "string"
 					}
 				},
 				"annotations": [],
