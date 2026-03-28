@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "data-factory-proj-1"
+		},
+		"ADLS_SQL_PARQUET_accountKey": {
+			"value": ""
+		},
+		"LS_ONPrem_SQL_Server_DW_password": {
+			"value": ""
+		},
+		"LS_Parent_SQLserver_Dw_password": {
+			"value": ""
+		},
+		"adls_proj_1_accountKey": {
+			"value": ""
+		},
+		"sql_server_proj_1_password": {
+			"value": ""
+		},
+		"ADLS_SQL_PARQUET_properties_typeProperties_url": {
+			"value": "https://adlsstorageproj1.dfs.core.windows.net/"
+		},
+		"LS_ONPrem_SQL_Server_DW_properties_typeProperties_server": {
+			"value": "LAPTOP-QRL7FSQN\\SQLEXPRESS"
+		},
+		"LS_ONPrem_SQL_Server_DW_properties_typeProperties_database": {
+			"value": "VISION_BOARD_PROJECT_1"
+		},
+		"LS_ONPrem_SQL_Server_DW_properties_typeProperties_userName": {
+			"value": "rahul_admin"
+		},
+		"LS_Parent_SQLserver_Dw_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_Parent_SQLserver_Dw_properties_typeProperties_database": {
+			"value": "VISION_BOARD_PROJECT_1"
+		},
+		"LS_Parent_SQLserver_Dw_properties_typeProperties_userName": {
+			"value": "rahul_admin"
+		},
+		"adls_proj_1_properties_typeProperties_url": {
+			"value": "https://adlsstorageproj1.dfs.core.windows.net/"
+		},
+		"sql_server_proj_1_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"sql_server_proj_1_properties_typeProperties_database": {
+			"value": "VISION_BOARD_PROJECT_1"
+		},
+		"sql_server_proj_1_properties_typeProperties_userName": {
+			"value": "rahul_admin"
+		}
+	}
+}
