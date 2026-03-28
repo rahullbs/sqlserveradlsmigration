@@ -1,0 +1,27 @@
+{
+	"name": "DS_SQLTABLE_APRQUE1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLS_SQL_PARQUET",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Table_Name": {
+				"type": "string",
+				"defaultValue": "@pipeline().parameters.TableName"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "@concat(dataset().Table_Name,'_',formatDateTime(utcNow(),'yyyyMMddHHmmss'),'.parquet')",
+				"folderPath": "@concat(dataset().Table_Name,'/',formatDateTime(utcNow(),'yyyy/MM/dd’))",
+				"fileSystem": "retaildw"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
