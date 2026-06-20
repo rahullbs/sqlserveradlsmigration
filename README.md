@@ -166,6 +166,6 @@ After successful load:
 ## 👨‍💻 Author
 
 Rahul K
-Backend Developer | Java | Spring Boot | Azure Data Engineering Enthusiast
+Azure Data Engineering 
 
 ---
